@@ -1,8 +1,8 @@
-                                 **=======JavaScript Project===========**
+                                 ==========JavaScript Project===========
 
 
 
-This repository contains my frontend projects made using \*\*HTML, CSS and JavaScript\*\*.
+This repository contains my frontend projects made using HTML, CSS and JavaScript
 
 
 
@@ -42,9 +42,9 @@ It loads albums and songs dynamically and has play, pause, next/previous, seekba
 
 
 
-\## Author 👤
+\## Author 
 
-Made by \*\*Tanay\*\*
+Made by Tanay
 
 
 
