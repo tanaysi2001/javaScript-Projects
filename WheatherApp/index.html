@@ -10,21 +10,27 @@
     
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
-            <button>
-                <img src="images/search.png" alt="">
+            <input type="text" placeholder="enter city name" spellcheck="false" class="cityname" name="city ">
+            <button class="searchButton">
+                <img src="images/search.png" alt="" >
             </button>
         </div>
 
+        <p class="statusText"></p>
+
+        <div class="error">
+            <p>Invalid City name</p>
+        </div>
+
         <div class="weather">
-            <img src="images/rain.png" class="weatherIcon weatherImages" >
-            <h1 class="temp">22 <sup>o</sup>c</h1>
+            <img src="images/rain.png" class="weatherIcon " >
+            <h1 class="temp">22 <sup>o</sup>c </h1>
             <h2 class="city">NewYork</h2>
 
             <div class="details">
 
                  <div class="col">
-                    <img src="images/humidity.png" class="weatherImages">
+                    <img src="images/humidity.png" class="weatherImages invert" >
                     <div>
                         <p class="humidity">50%</p>
                         <p>Humidity</p>
