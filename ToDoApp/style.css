@@ -78,10 +78,69 @@ input {
   background-color: var(--secondaryBackground);
   border: 1px solid var(--purple);
   border-radius:10px;
+  outline: none;
+  color: var(--text);
+  /* font-size: 20px; */
 }
 
 button{
     height:50px;
     width:50px;
-    border-radius: 10%;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--purple);
+    color: var(--text);
+    font-size: 30px;
+    font-weight:bold;
+    outline: none;
 }
+#taskList{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  margin-top:30px;
+  width:100%;
+  list-style: none;
+}
+
+
+.taskItem{
+  display:flex;
+  background-color:var(--secondaryBackground) ;
+  padding:10px;
+  border-radius:10px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.task{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+
+.task input{
+  width:20px;
+  height: 20px;
+}
+
+.completed p{
+  text-decoration: line-through;
+  color: var(--teal);
+}
+
+.taskItem img{
+  width:24px;
+  height: 24px;
+  margin:0 10px;
+  cursor: pointer;
+}
+
+.invert{
+  filter: invert();
+}
+
