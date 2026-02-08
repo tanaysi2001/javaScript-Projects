@@ -1,10 +1,30 @@
+
 let tasks = [];
 
+//function for updating the statistics of progress bar
+//we must call this function after deleteing,adding,and updating the tasks
+const updateStats=()=>{
+  const completedTasks=tasks.filter((task)=>task.completed).length
 
+  const totalTasks=tasks.length;
+  const progress=(completedTasks/totalTasks)*100;
+
+  //updating the progress bar based on the completed tasks
+
+  const progressBar=document.getElementById("progress");
+  progressBar.style.width=progress+"%";//updating the width
+
+  //changing the numbers
+  const numbers=document.getElementById("numbers");
+  numbers.innerHTML=`${completedTasks}/${totalTasks}`;
+  
+}
 //function to create delete task
 const deleteTask=(index)=>{
 tasks.splice(index,1)//telling that at the current given index remove one item
 updateTaskList();
+
+updateStats();
 }
 
 //function for editing the task
@@ -18,6 +38,8 @@ taskInput.value=tasks[index].text;//here the value inside the object will be pas
 tasks.splice(index,1);
 updateTaskList();
 
+updateStats();
+
 
 }
 
@@ -27,6 +49,8 @@ const toggleTaskComplete=(index)=>{
 tasks[index].completed=!tasks[index].completed;
 updateTaskList();
 // console.log(tasks)
+
+updateStats();
 }
 
 //function for updating the task
@@ -64,6 +88,7 @@ const addTask = () => {
     taskInput.value = "";
 
     updateTaskList();
+    updateStats();
   }
 };
 
