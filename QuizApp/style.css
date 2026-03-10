@@ -79,3 +79,8 @@ body {
   background-color: #ff9393;
 }
 
+.question{
+  display:flex;
+  justify-content: space-between;
+}
+

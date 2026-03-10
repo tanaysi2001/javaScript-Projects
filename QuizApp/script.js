@@ -44,9 +44,12 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answerButtons");
 const nextButton = document.getElementById("nextBtn");
+const timerElement=document.getElementById("timer");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft=10;
+let timer;
 
 function StartQuiz() {
   currentQuestionIndex = 0;
@@ -58,6 +61,7 @@ function StartQuiz() {
 
 function showQuestion() {
   resetState();
+  startTimer();
   let currentQuestion = questions[currentQuestionIndex];
   let questionNumber = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNumber + "." + currentQuestion.question;
@@ -86,6 +90,7 @@ function resetState() {
 
 function selectAnswer(e) {
   //here the event is directly passed from the browser from the add event listener
+  clearInterval(timer);
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
 
@@ -134,4 +139,28 @@ nextButton.addEventListener("click",()=>{
     StartQuiz();
   }
 })
+
+function startTimer(){
+  timeLeft=10;
+  timerElement.innerHTML="Time: "+timeLeft+"s";
+
+  timer=setInterval(()=>{
+    timeLeft--;
+    timerElement.innerHTML="Time: "+timeLeft;
+
+    if(timeLeft==0){
+      clearInterval(timer);
+
+      //reveal the correct answer and disable button
+      Array.from(answerButton.children).forEach(button=>{
+        if(button.dataset.correct==='true'){
+          button.classList.add('correct');
+        }
+        button.disabled=true;
+      });
+
+      nextButton.style.display='block';
+    }
+  },1000)
+}
 StartQuiz();
